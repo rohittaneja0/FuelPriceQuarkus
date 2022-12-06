@@ -1,0 +1,116 @@
+---
+openapi: 3.0.2
+info:
+  title: Profile
+  version: 1.0.0
+paths:
+  /profile:
+    summary: Get Profile Information
+    get:
+      responses:
+        "200":
+          $ref: '#/components/responses/ProfileResponse'
+        "401":
+          $ref: '#/components/responses/EmptyResponse'
+        "500":
+          $ref: '#/components/responses/EmptyResponse'
+      summary: Get Profile
+      description: Get Quotes
+    post:
+      responses:
+        "201":
+          $ref: '#/components/responses/ProfileResponse'
+        "401":
+          $ref: '#/components/responses/EmptyResponse'
+        "500":
+          $ref: '#/components/responses/EmptyResponse'
+      summary: Create Profile
+components:
+  schemas:
+    quotes:
+      description: ""
+      type: object
+    address2:
+      description: ""
+      type: string
+    city:
+      description: ""
+      type: string
+    firstName:
+      description: ""
+      type: string
+    id:
+      description: ""
+      type: number
+    lastName:
+      description: ""
+      type: string
+    state:
+      description: ""
+      type: string
+    userID:
+      description: ""
+      type: string
+    zip:
+      description: ""
+      type: number
+    profile:
+      description: ""
+      required:
+      - userID
+      - address1
+      - address2
+      - city
+      - state
+      - firstName
+      - lastName
+      - id
+      - zip
+      type: object
+      properties:
+        userID:
+          $ref: '#/components/schemas/userID'
+          description: ""
+        address1:
+          $ref: '#/components/schemas/address1'
+          description: ""
+        address2:
+          $ref: '#/components/schemas/address2'
+          description: ""
+        city:
+          $ref: '#/components/schemas/city'
+          description: ""
+        state:
+          $ref: '#/components/schemas/state'
+          description: ""
+        firstName:
+          $ref: '#/components/schemas/firstName'
+          description: ""
+        lastName:
+          $ref: '#/components/schemas/lastName'
+          description: ""
+        id:
+          $ref: '#/components/schemas/id'
+          description: ""
+        quotes:
+          $ref: '#/components/schemas/quotes'
+          description: ""
+        zip:
+          $ref: '#/components/schemas/zip'
+          description: ""
+    address1:
+      description: ""
+      type: string
+  responses:
+    ProfileResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/profile'
+      description: ""
+    EmptyResponse:
+      content:
+        application/json:
+          schema:
+            type: string
+      description: ""
